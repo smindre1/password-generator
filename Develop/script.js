@@ -2,74 +2,177 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-// function writePassword() {
-//   // var password = generatePassword();
-//   alert("Test");
-//   // var passwordText = document.querySelector("#password");
+function writePassword() {
+  //   // var password = generatePassword();
+  //   alert("Test");
+  //   // var passwordText = document.querySelector("#password");
+  generatePassword();
+  alert(answers);
+  //   // passwordText.value = password;
 
-//   // passwordText.value = password;
+  //   //Make the password using random number generator and arrays.
+  //   //Display the password.
+}
 
-//   //prompts:
-//   //What is the length of the password? (008-128 char)
-//   //Would you like to include lowercase letters?
-//   //Would you like to include uppercase letters?
-//   //Would you like to include numbers?
-//   //Lastly, would you like to include special characters?
-//   //Make the password using random number generator and arrays.
-//   //Display the password.
-// }
+function generatePassword() {
+  prompt("Test 2");
+  var answers = parameters();
+  pasLength = answers.pop();
+  alert(answers);
+  alert(pasLength);
 
-// function generatePassword() {
-//   window.alert("Testing2");
-//   parameters();
-// }
+  function ranInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    result = Math.floor(Math.random()*(max-min)+min);
+    return result;
+};
+  var password = []
+  for (pasLength) {
+    var result = ranInt(0, answers.length);
+    password = password.concat(answers[result]);
+    return password;
+    alert(password)
+  };
+}
 
-// function parameters() {
-//   var pasLength = 0;
-//   var lowercase = false;
-//   var uppercae = false;
-//   var numbers = false;
-//   var special = false;
+function parameters() {
+  prompt("Test 3");
+  var pasLength = 0;
+  var lowercase = false;
+  var uppercae = false;
+  var numbers = false;
+  var special = false;
+  prompt("Test 4");
+  let choice = prompt("What is the length of the password? (008-128 char)", "");
+  pasLength = [choice];
+  alert(choice);
 
-//   let choice = prompt("What is the length of the password? (008-128 char)", "");
-//   // if (choice == "yes") {
-//   //   lowercase = true;
-//   // }
-//   //test
-//   window.alert(choice);
+  choice = prompt("Would you like to include lowercase letters?", "");
+  if (choice == "yes") {
+    lowercase = [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "j",
+      "k",
+      "l",
+      "m",
+      "n",
+      "o",
+      "p",
+      "q",
+      "r",
+      "s",
+      "t",
+      "u",
+      "v",
+      "w",
+      "x",
+      "y",
+      "z",
+    ];
+  }
+  alert(lowercase);
+  prompt("Test 5");
 
-//   let choice = prompt("Would you like to include lowercase letters?", "");
-//   if (choice == "yes") {
-//     lowercase = true;
-//   }
-//   //test
-//   window.alert(lowercase);
+  choice = prompt("Would you like to include uppercase letters?", "");
+  if (choice == "yes") {
+    uppercase = [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z",
+    ];
+  }
+  //test
+  alert(uppercase);
 
-//   let choice = prompt("Would you like to include uppercase letters?", "");
-//   if (choice == "yes") {
-//     uppercase = true;
-//   }
-//   //test
-//   window.alert(uppercase);
+  choice = prompt("Would you like to include numbers?", "");
+  if (choice == "yes") {
+    numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  }
+  //test
+  alert(numbers);
 
-//   let choice = prompt("Would you like to include numbers?", "");
-//   if (choice == "yes") {
-//     numbers = true;
-//   }
-//   //test
-//   window.alert(numbers);
+  choice = prompt("Lastly, would you like to include special characters?", "");
+  if (choice == "yes") {
+    special = [
+      "!",
+      " ",
+      "#",
+      "$",
+      "%",
+      "&",
+      "(",
+      ")",
+      "*",
+      "+",
+      "-",
+      ".",
+      "/",
+      ":",
+      ";",
+      "<",
+      "=",
+      ">",
+      "?",
+      "@",
+      "[",
+      "]",
+      "^",
+      "_",
+      "`",
+      "{",
+      "|",
+      "}",
+      "~",
+    ];
+  }
+  //test
+  alert(special);
 
-//   let choice = prompt(
-//     "Lastly, would you like to include special characters?",
-//     ""
-//   );
-//   if (choice == "yes") {
-//     special = true;
-//   }
-//   //test
-//   window.alert(special);
-// }
+  var answers = lowercase;
+  answers = answers.concat(uppercase);
+  answers = answers.concat(numbers);
+  answers = answers.concat(special);
+  answers = answers.concat(pasLength);
+  alert(answers);
+  return answers;
+}
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", alert("hello"));
+generateBtn.addEventListener("click", writePassword);
 //writePassword <--generatePassword
+
+// generateBtn.addEventListener("click", function () {
+//   writePassword();
+// });
