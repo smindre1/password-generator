@@ -17,33 +17,32 @@ function writePassword() {
 function generatePassword() {
   prompt("Test 2");
   var answers = parameters();
+  var length = answers.length;
+  alert(length);
   pasLength = answers.pop();
   alert(answers);
   alert(pasLength);
+  // works up to here
+  var password = [];
 
-  function ranInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    result = Math.floor(Math.random()*(max-min)+min);
-    return result;
-};
-  var password = []
-  for (pasLength) {
-    var result = ranInt(0, answers.length);
-    password = password.concat(answers[result]);
+  for (let i = 0; i <= pasLength; i++) {
+    var result = Math.floor(Math.random() * length) + 1;
+    // password = password.concat(answers[result]);
+    password[i] = answers[result];
+    alert(password);
     return password;
-    alert(password)
-  };
+  }
+  alert(password);
 }
 
 function parameters() {
-  prompt("Test 3");
+  //   prompt("Test 3");
   var pasLength = 0;
   var lowercase = false;
   var uppercae = false;
   var numbers = false;
   var special = false;
-  prompt("Test 4");
+  //   prompt("Test 4");
   let choice = prompt("What is the length of the password? (008-128 char)", "");
   pasLength = [choice];
   alert(choice);
