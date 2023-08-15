@@ -6,7 +6,9 @@ From this project I learned how to operate a random number generator and how to 
 
 ## Usage
 
-Upon clikcing the button, the user will be prompted to type in a number for the length of their desired password. That will be followed by four more prompts asking what types of characters should be included in the password. The user's new password will then be written in the display box.
+Upon clicking the button, the user will be prompted to type in a number for the length of their desired password. That will be followed by four more prompts asking what types of characters should be included in the password. The user's new password will then be written in the display box.
+
+Deployed Program [Password Generator Website](https://smindre1.github.io/password-generator/)
 
 ## Credits
 
