@@ -1,177 +1,153 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+function generatePassword() {
+  // ask user for number between 8 and 128
+  var tempPassword = [];
+  pasLength = prompt("What is the length of the password? (008-128 char)", "");
+  if (8 <= pasLength && 128 >= pasLength) {
+    var lowercase = [];
+    var uppercase = [];
+    var numbers = [];
+    var special = [];
+    choice = confirm("Would you like to include lowercase letters?");
+    if (choice == true) {
+      lowercase = [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "q",
+        "r",
+        "s",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z",
+      ];
+    }
+    choice = confirm("Would you like to include uppercase letters?", "");
+    if (choice == true) {
+      uppercase = [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+      ];
+    }
+    choice = confirm("Would you like to include numbers?", "");
+    if (choice == true) {
+      numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    }
+    choice = confirm(
+      "Lastly, would you like to include special characters?",
+      ""
+    );
+    if (choice == true) {
+      special = [
+        "!",
+        " ",
+        "#",
+        "$",
+        "%",
+        "&",
+        "(",
+        ")",
+        "*",
+        "+",
+        "-",
+        ".",
+        "/",
+        ":",
+        ";",
+        "<",
+        "=",
+        ">",
+        "?",
+        "@",
+        "[",
+        "]",
+        "^",
+        "_",
+        "`",
+        "{",
+        "|",
+        "}",
+        "~",
+      ];
+    }
+    var answers = [];
+    answers = answers.concat(lowercase);
+    answers = answers.concat(uppercase);
+    answers = answers.concat(numbers);
+    answers = answers.concat(special);
+    if (answers.length < 4) {
+      return null;
+    }
+    for (let i = 1; i <= pasLength; i++) {
+      var result = Math.floor(Math.random() * answers.length) + 1;
+      tempPassword[i] = answers[result];
+    }
+    password = tempPassword.join("");
+    return password;
+  } else {
+    // let password = null;
+    return null;
+  }
+  // if number is not between 8 and 128 return null
+
+  // ask them if they want special characters
+  // ask them if they want upper case
+  // ask them in they want numbers
+
+  // check if user said yes to at least1
+  // and if not return null
+}
+
 // Write password to the #password input
 function writePassword() {
-  //   // var password = generatePassword();
-  //   alert("Test");
-  //   // var passwordText = document.querySelector("#password");
-  generatePassword();
-  alert(answers);
-  //   // passwordText.value = password;
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-  //   //Make the password using random number generator and arrays.
-  //   //Display the password.
-}
-
-function generatePassword() {
-  prompt("Test 2");
-  var answers = parameters();
-  var length = answers.length;
-  alert(length);
-  pasLength = answers.pop();
-  alert(answers);
-  alert(pasLength);
-  // works up to here
-  var password = [];
-
-  for (let i = 0; i <= pasLength; i++) {
-    var result = Math.floor(Math.random() * length) + 1;
-    // password = password.concat(answers[result]);
-    password[i] = answers[result];
-    alert(password);
-    return password;
-  }
-  alert(password);
-}
-
-function parameters() {
-  //   prompt("Test 3");
-  var pasLength = 0;
-  var lowercase = false;
-  var uppercae = false;
-  var numbers = false;
-  var special = false;
-  //   prompt("Test 4");
-  let choice = prompt("What is the length of the password? (008-128 char)", "");
-  pasLength = [choice];
-  alert(choice);
-
-  choice = prompt("Would you like to include lowercase letters?", "");
-  if (choice == "yes") {
-    lowercase = [
-      "a",
-      "b",
-      "c",
-      "d",
-      "e",
-      "f",
-      "g",
-      "h",
-      "i",
-      "j",
-      "k",
-      "l",
-      "m",
-      "n",
-      "o",
-      "p",
-      "q",
-      "r",
-      "s",
-      "t",
-      "u",
-      "v",
-      "w",
-      "x",
-      "y",
-      "z",
-    ];
-  }
-  alert(lowercase);
-  prompt("Test 5");
-
-  choice = prompt("Would you like to include uppercase letters?", "");
-  if (choice == "yes") {
-    uppercase = [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S",
-      "T",
-      "U",
-      "V",
-      "W",
-      "X",
-      "Y",
-      "Z",
-    ];
-  }
-  //test
-  alert(uppercase);
-
-  choice = prompt("Would you like to include numbers?", "");
-  if (choice == "yes") {
-    numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  }
-  //test
-  alert(numbers);
-
-  choice = prompt("Lastly, would you like to include special characters?", "");
-  if (choice == "yes") {
-    special = [
-      "!",
-      " ",
-      "#",
-      "$",
-      "%",
-      "&",
-      "(",
-      ")",
-      "*",
-      "+",
-      "-",
-      ".",
-      "/",
-      ":",
-      ";",
-      "<",
-      "=",
-      ">",
-      "?",
-      "@",
-      "[",
-      "]",
-      "^",
-      "_",
-      "`",
-      "{",
-      "|",
-      "}",
-      "~",
-    ];
-  }
-  //test
-  alert(special);
-
-  var answers = lowercase;
-  answers = answers.concat(uppercase);
-  answers = answers.concat(numbers);
-  answers = answers.concat(special);
-  answers = answers.concat(pasLength);
-  alert(answers);
-  return answers;
+  passwordText.value = password;
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-//writePassword <--generatePassword
-
-// generateBtn.addEventListener("click", function () {
-//   writePassword();
-// });
